@@ -80,12 +80,12 @@
   }
   
   body {
-    margin:0;
+    margin:0; 
   }
   
   .bg {
     animation:slide 3s ease-in-out infinite alternate;
-    background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+    background-image: linear-gradient(-60deg, rgb(74, 211, 152) 50%, #09f 50%);
     bottom:0;
     left:-50%;
     opacity:.5;
@@ -116,8 +116,8 @@
     top:50%;
     transform:translate(-50%, -50%);
   }
-
-.content2 {
+  
+  .content2 {
     background-color:rgba(255,255,255,.8);
     border-radius:.25em;
     box-shadow:0 0 .25em rgba(0,0,0,.25);
@@ -128,12 +128,13 @@
     text-align:center;
     top:80%;
     transform:translate(-50%, -50%);
+    font-weight: bold;
   }
   
   h1 {
     font-family:monospace;
   }
-  
+
   @keyframes slide {
     0% {
       transform:translateX(-25%);
@@ -141,8 +142,64 @@
     100% {
       transform:translateX(25%);
     }
+    mg {
+      max-width: 100%;
+    }
 
- 
   }
 
+  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap');
+
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
   
+  #myCarousel {
+    margin-top: 50px;
+}
+
+@media (max-width: 768px) {
+    .carousel-inner .carousel-item>div {
+        display: none;
+    }
+
+    .carousel-inner .carousel-item>div:first-child {
+        display: block;
+    }
+}
+
+.carousel-inner .carousel-item.active,
+.carousel-inner .carousel-item-start,
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+    display: flex;
+}
+
+@media (min-width: 768px) {
+
+    .carousel-inner .carousel-item-right.active,
+    .carousel-inner .carousel-item-next,
+    .carousel-item-next:not(.carousel-item-start) {
+        transform: translateX(25%) !important;
+    }
+
+    .carousel-inner .carousel-item-left.active,
+    .carousel-item-prev:not(.carousel-item-end),
+    .active.carousel-item-start,
+    .carousel-item-prev:not(.carousel-item-end) {
+        transform: translateX(-25%) !important;
+    }
+
+    .carousel-item-next.carousel-item-start,
+    .active.carousel-item-end {
+        transform: translateX(0) !important;
+    }
+
+    .carousel-inner .carousel-item-prev,
+    .carousel-item-prev:not(.carousel-item-end) {
+        transform: translateX(-25%) !important;
+    }
+}
+ 
